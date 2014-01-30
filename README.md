@@ -73,11 +73,12 @@ Ok, modules loaded: Main.
 In each file/step, make sure you understand the new topics that get introduced.
 
 When (not "if") you get stuck, these are your friends:
-1. Google.
-1. [Hoogle!](http://www.haskell.org/hoogle/)
-1. [Learn You a Haskell](http://learnyouahaskell.com/)
-1. StackOverflow
-1. Twitter (you can tweet me questions [@mecampbellsoup](https://twitter.com/mecampbellsoup))
+
+* Google.
+* [Hoogle!](http://www.haskell.org/hoogle/)
+* [Learn You a Haskell](http://learnyouahaskell.com/)
+* StackOverflow
+* Twitter (you can tweet me questions [@mecampbellsoup](https://twitter.com/mecampbellsoup))
 
 ## In Closing
 Good luck, don't be afraid, and have fun!
