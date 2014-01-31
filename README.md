@@ -25,7 +25,13 @@ If that returns something like `/usr/local/bin/ghci` then you're ready to rock!
 
 ## Usage
 
-Now that we have the Haskell compiler installed, let's get inside the GHCi REPL:
+First, you'll need to fork or clone this repo. (I'd suggest fork, in case you want to make pull requests with changes.)
+
+```bash
+$> git clone git@github.com:mecampbellsoup/do-the-haskell-shuffle.git
+```
+
+Now that we have the repo locaclly, and the Haskell compiler installed, let's get inside the GHCi REPL:
 
 ```bash
 $> gchi
@@ -39,26 +45,24 @@ Ok, modules loaded: Main.
 ```
 Awesome - now you can mess around with the newly-compiled Haskell program, for example:
 ```bash
-Prelude > :t Squirtle
-Squirtle :: Pokemon
-Prelude > :k Suit
-Suit :: *
-Prelude > :k CardValue
-CardValue :: *
-Prelude > :t deck
-deck :: [(CardValue, Suit)]
 Prelude > :type Diamond
 Diamond :: Suit
+
 Prelude > :type Queen
 Queen :: CardValue
+
 Prelude > :kind Suit
 Suit :: *
+
 Prelude > :kind CardValue
 CardValue :: *
+
 Prelude > :t Pikachu
 Pikachu :: Pokemon
+
 Prelude > :t deck
 deck :: [(CardValue, Suit)]
+
 Prelude > show Jigglypuff
 "Jigglypuff"
 ```
