@@ -3,17 +3,16 @@
 data Suit = Club | Diamond | Heart | Spade
     deriving (Read, Show, Enum, Eq, Ord, Bounded)
 
-data CardValue = Two | Three | Four
-     | Five | Six | Seven | Eight | Nine | Ten
-     | Jack | Queen | King | Ace
-    deriving (Read,  Show, Enum, Eq, Ord, Bounded)
+data CardValue = Two | Three | Four | Five | Six | Seven | Eight | Nine | Ten | Jack | Queen | King | Ace
+    deriving (Read, Show, Enum, Eq, Ord, Bounded)
 
+{-By defining our Card data type this way, we get `value` and `suit` functions for free!-}
 data Card = Card { value :: CardValue,
                     suit :: Suit }
     deriving (Read, Show, Eq, Bounded)
 
 deck :: [Card]
-deck = [Card val su | val <- [Two .. Ace], su <- [Club .. Spade]]
+deck =  [Card val su | val <- [Two .. Ace], su <- [Club .. Spade]]
 
 {-|
  The parts after the word "deriving" are type classes, the behaviors we want to make available to our data type

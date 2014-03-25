@@ -14,10 +14,6 @@ data Card = Card { value :: CardValue,
 
 instance Ord Card where
     compare c1 c2 = compare (value c1, suit c1) (value c2, suit c2)
-    -- here we have defined the Ord typeclass instance for the Card data type
-    -- it will first compare values, and then suits
-    -- how would we reverse that behavior, i.e. comparing suits before values?
-    -- e.g. I want the Three of Spades to be > Queen of Clubs :)
 
 instance Enum Card where
     toEnum n  = let (v,s) = n `divMod` 4 in Card (toEnum v) (toEnum s)
@@ -28,10 +24,10 @@ type Deck = [Card]
 deck :: Deck
 deck = [Card val su | val <- [Two .. Ace], su <- [Club .. Spade]]
 
-buildDeck :: (Suit, CardValue) -> Deck
-buildDeck (downToSuit, downToCard) = [Card val su | val <- [downToCard .. Ace], su <- [downToSuit .. Spade]]
+buildDeck :: Card -> Card -> Deck
+buildDeck lowestCard highestCard = [ lowestCard .. highestCard ]
 
--- interlace two decks of the same size
+-- interlace, or shuffle, two decks of the same size
 interlace :: Deck -> Deck -> Deck
 interlace [] [] = []
 interlace (c1:d1) (c2:d2) = [c1,c2] ++ interlace d1 d2
@@ -58,7 +54,7 @@ outShuffle deck = interlace deck1 deck2
     "perfect in" shuffle, where:
     (1, 2,..., n, n+1, n+2,..., 2n)
     becomes:
-    (n+f, 1, n+2, 2,..., 2n, n)
+    (n+1, 1, n+2, 2,..., 2n, n)
 -}
 inShuffle :: Deck -> Deck
 inShuffle deck = interlace deck2 deck1
